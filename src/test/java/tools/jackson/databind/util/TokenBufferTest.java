@@ -311,6 +311,14 @@ public class TokenBufferTest extends DatabindTestUtil
     }
 
     @Test
+    void testNumberIntAsStringSerialization() throws IOException {
+        try (TokenBuffer buf = new TokenBuffer(null, false)) {
+            buf.writeNumber("42", true);
+            assertEquals("42", MAPPER.writeValueAsString(buf));
+        }
+    }
+
+    @Test
     public void testParentContext() throws IOException
     {
         TokenBuffer buf = TokenBuffer.forGeneration();
