@@ -498,6 +498,8 @@ public class TokenBuffer
                         gen.writeNumber(l);
                     } else if (n instanceof Short s) {
                         gen.writeNumber(s);
+                    } else if (n instanceof String s) {
+                        gen.writeNumber(s);
                     } else {
                         gen.writeNumber(((Number) n).intValue());
                     }
